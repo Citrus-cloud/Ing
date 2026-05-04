@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Башни Ингушетии — Каменная летопись</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f9f7f3;
+            color: #2e241f;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .hero-towers {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.65)),
+                url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Erzi_towers_complex.jpg/1280px-Erzi_towers_complex.jpg')
+                center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 7rem 1.5rem 5rem;
+            border-bottom: 6px solid #d4a017;
+        }
+
+        .hero-towers h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 3px 4px 12px rgba(0,0,0,0.7);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-towers .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Навигация */
+        nav {
+            background: #3a2e28;
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 2rem;
+        }
+
+        nav li {
+            list-style: none;
+        }
+
+        nav a {
+            color: #f7eed7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            border-bottom-color: #d4a017;
+            color: #ffd966;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem;
+            flex: 1;
+        }
+
+        section {
+            margin-bottom: 4.5rem;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #4b3621;
+            border-left: 10px solid #d4a017;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.2rem;
+            margin-top: 1.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 38px rgba(0,0,0,0.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-bottom: 4px solid #d4a017;
+        }
+
+        .card-content {
+            padding: 1.5rem 1.4rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #3a2e28;
+            margin-bottom: 0.7rem;
+        }
+
+        .card p {
+            color: #4d3e34;
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+
+        .tag {
+            background: #efe0c6;
+            color: #4b3621;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        .fact-banner {
+            background: linear-gradient(120deg, #d4a017, #f0c45a);
+            color: #2e241f;
+            border-radius: 28px;
+            padding: 2.8rem 2.2rem;
+            margin: 3rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .fact-banner .fact-icon {
+            font-size: 3.5rem;
+        }
+
+        .fact-banner h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-banner p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            max-width: 600px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid #d4a017;
+            transition: transform 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        footer {
+            background: #3a2e28;
+            color: #d9cdb0;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+            border-top: 5px solid #d4a017;
+        }
+
+        @media (max-width: 600px) {
+            .hero-towers {
+                padding: 4rem 1rem 3rem;
+            }
+            .fact-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-towers">
+        <h1>Башни Ингушетии</h1>
+        <p class="subtitle">Каменная летопись мужества и мастерства</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Главная</a></li>
+            <li><a href="towers.html" class="active">🏔️ Башни</a></li>
+            <li><a href="costume.html">👗 Костюм</a></li>
+            <li><a href="cuisine.html">🍽️ Кухня</a></li>
+            <li><a href="islam.html">🕌 Ислам</a></li>
+            <li><a href="nature.html">🌿 Природа</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Типы башен -->
+        <section>
+            <h2>Три типа башен</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="https://openkavkaz.com/fotobank/ing200/129.jpg" alt="Боевая башня">
+                    <div class="card-content">
+                        <h3>Боевые (вIов)</h3>
+                        <p>Высокие, до 25–30 метров, с навесными машикулями и узкими бойницами. Вход часто располагался на втором этаже для защиты от врагов.</p>
+                        <span class="tag">⚔️ Оборона</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://openkavkaz.com/fotobank/ing200/107.jpg" alt="Жилая башня">
+                    <div class="card-content">
+                        <h3>Жилые (гIала)</h3>
+                        <p>В 2–3 этажа: первый этаж для скота, верхние — для семьи. Отапливались очагом, дым уходил через отверстие в пирамидальной крыше.</p>
+                        <span class="tag">🏡 Быт</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://openkavkaz.com/fotobank/ing200/089.jpg" alt="Сигнальная башня">
+                    <div class="card-content">
+                        <h3>Сигнальные</h3>
+                        <p>Небольшие башни на стратегических высотах. С помощью огня передавали сообщения о приближении опасности за считанные минуты.</p>
+                        <span class="tag">🔥 Связь</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Интересный факт -->
+        <div class="fact-banner">
+            <div class="fact-icon">🗿</div>
+            <div>
+                <h3>Башня за 365 дней</h3>
+                <p>По древнему обычаю, боевую башню следовало возвести ровно за один год. Если семья не укладывалась в срок — род считался слабым. Камни подгонялись без раствора, но кладка выдерживала землетрясения.</p>
+            </div>
+        </div>
+
+        <!-- Знаменитые комплексы -->
+        <section>
+            <h2>Знаменитые комплексы</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Vovnushki_towers.jpg/1280px-Vovnushki_towers.jpg" alt="Вовнушки">
+                    <div class="card-content">
+                        <h3>Вовнушки</h3>
+                        <p>Шедевр средневекового зодчества. Три башни, вписанные в скалы, словно вырастают из камня. Финалист конкурса «Семь чудес России».</p>
+                        <span class="tag">🏆 Наследие</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Erzi_battle_towers.jpg/1280px-Erzi_battle_towers.jpg" alt="Эрзи">
+                    <div class="card-content">
+                        <h3>Эрзи</h3>
+                        <p>Крупный замковый комплекс. Здесь была найдена бронзовая фигурка «Орёл Сулеймана» VIII века — символ высокого мастерства ингушских умельцев.</p>
+                        <span class="tag">🦅 История</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://openkavkaz.com/fotobank/ing200/155.jpg" alt="Таргим">
+                    <div class="card-content">
+                        <h3>Таргим</h3>
+                        <p>Живописная котловина с целым ансамблем жилых и боевых башен. Считается прародиной многих ингушских фамилий.</p>
+                        <span class="tag">🌄 Истоки</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Фотогалерея -->
+        <section>
+            <h2>Фотогалерея</h2>
+            <div class="gallery-grid">
+                <img src="https://openkavkaz.com/fotobank/ing200/110.jpg" alt="Деталь каменной кладки">
+                <img src="https://openkavkaz.com/fotobank/ing200/132.jpg" alt="Цорийский башенный комплекс">
+                <img src="https://openkavkaz.com/fotobank/ing200/141.jpg" alt="Башни на фоне заката">
+                <img src="https://openkavkaz.com/fotobank/ing200/074.jpg" alt="Боевая башня с машикулями">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Культура Ингушетии. Башни — живое наследие Кавказа.</p>
+        <p style="margin-top: 0.4rem;">Фотографии из открытых источников (Openkavkaz, Wikimedia).</p>
+    </footer>
+
+</body>
+</html>
