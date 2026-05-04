@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Религия Ингушетии — От древности к Исламу</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f9f7f3;
+            color: #2e241f;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Герой-блок */
+        .hero-islam {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)),
+                url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Borga_Kash_mausoleum.jpg/1280px-Borga_Kash_mausoleum.jpg')
+                center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 7rem 1.5rem 5rem;
+            border-bottom: 6px solid #d4a017;
+        }
+
+        .hero-islam h1 {
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 3px 4px 12px rgba(0,0,0,0.7);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-islam .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* Навигация */
+        nav {
+            background: #3a2e28;
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 2rem;
+        }
+
+        nav a {
+            color: #f7eed7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            border-bottom-color: #d4a017;
+            color: #ffd966;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem;
+            flex: 1;
+        }
+
+        section {
+            margin-bottom: 4.5rem;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #4b3621;
+            border-left: 10px solid #d4a017;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.2rem;
+            margin-top: 1.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 38px rgba(0,0,0,0.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid #d4a017;
+        }
+
+        .card-content {
+            padding: 1.5rem 1.4rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #3a2e28;
+            margin-bottom: 0.7rem;
+        }
+
+        .card p {
+            color: #4d3e34;
+            margin-bottom: 1.2rem;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            background: #efe0c6;
+            color: #4b3621;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        /* Блок с временной шкалой */
+        .timeline {
+            background: #f4ede1;
+            border-radius: 28px;
+            padding: 2.2rem 2rem;
+            margin: 2.8rem 0;
+            border: 2px solid #d4a017;
+        }
+
+        .timeline ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .timeline li {
+            padding: 0.6rem 0 0.6rem 2rem;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .timeline li::before {
+            content: "●";
+            color: #d4a017;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        footer {
+            background: #3a2e28;
+            color: #d9cdb0;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+            border-top: 5px solid #d4a017;
+        }
+
+        @media (max-width: 600px) {
+            .hero-islam {
+                padding: 4rem 1rem 3rem;
+            }
+            .card img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Герой -->
+    <header class="hero-islam">
+        <h1>Религия Ингушетии</h1>
+        <p class="subtitle">От древних святилищ до суфийских братств</p>
+    </header>
+
+    <!-- Навигация -->
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Главная</a></li>
+            <li><a href="towers.html">🏔️ Башни</a></li>
+            <li><a href="costume.html">👗 Костюм</a></li>
+            <li><a href="cuisine.html">🍽️ Кухня</a></li>
+            <li><a href="islam.html" class="active">🕌 Ислам</a></li>
+            <li><a href="nature.html">🌿 Природа</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Временная шкала -->
+        <section>
+            <h2>Путь веры: от язычества к Исламу</h2>
+            <div class="timeline">
+                <ul>
+                    <li><strong>Древность (до VII в.)</strong> — Политеизм и анимизм. Пантеон богов: верховный бог Дяла, бог грозы Села, богиня плодородия Тушоли. Культ предков и священных гор.[reference:0]</li>
+                    <li><strong>VII–XII вв.</strong> — Первое знакомство с исламом в период арабо-хазарских войн. Эпизодическое влияние, не закрепившееся в горах.[reference:1]</li>
+                    <li><strong>XIII–XIV вв.</strong> — Усиление ислама при Золотой Орде. Строительство мавзолея Борга-Каш (1405–1406 гг.).[reference:2]</li>
+                    <li><strong>XVI–XVIII вв.</strong> — Распространение ислама с равнины в горы через Кабарду, Дагестан и Чечню.[reference:3]</li>
+                    <li><strong>Середина XIX в.</strong> — Массовое принятие ислама ингушами. Проповедь шейха Кунта-Хаджи Кишиева.[reference:4]</li>
+                    <li><strong>XX–XXI вв.</strong> — Возрождение ислама после советского периода. Строительство новых мечетей и медресе.[reference:5]</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Древние верования -->
+        <section>
+            <h2>Доисламские верования</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="https://gazetaingush.ru/sites/default/files/styles/scale_width_1200/public/news-images/ingushetiya-svyatilishche-myatsel-foto-1.jpg?itok=5fK8D3pL" alt="Святилище Мят-Сели на Столовой горе">
+                    <div class="card-content">
+                        <h3>Святилище Мят-Сели</h3>
+                        <p>Древний храм на вершине Столовой горы (3000 м), посвящённый божеству Мят-Сели — одному из важнейших патронов ингушей. По преданиям, Мят-Сели, Тамыж-Ерда и Амгали-Ерда были родными братьями.[reference:6]</p>
+                        <span class="tag">🏔️ Языческий храм</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ingush_woman_in_traditional_dress.jpg/800px-Ingush_woman_in_traditional_dress.jpg" alt="Древние верования">
+                    <div class="card-content">
+                        <h3>Языческий пантеон</h3>
+                        <p>Ингуши почитали множество божеств: верховного Дялу, громовержца Селу, богиню плодородия Тушоли. Некоторые исследователи считают, что древние ингуши были близки к монотеизму, веря в единого Бога-Творца.[reference:7]</p>
+                        <span class="tag">🌿 Политеизм</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Исламские памятники -->
+        <section>
+            <h2>Исламские святыни</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="https://kavkaz.travel/wp-content/uploads/2022/11/borga-kash-mavzolei-01.jpg" alt="Мавзолей Борга-Каш">
+                    <div class="card-content">
+                        <h3>Борга-Каш (1405 г.)</h3>
+                        <p>Древнейший мусульманский памятник Ингушетии. Построен в 808 году по хиджре для захоронения Бек-Султана, сына Худайнада. Надписи на стенах мавзолея сохранили имена строителей.[reference:8]</p>
+                        <span class="tag">🕌 Ранний ислам</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://gazetaingush.ru/sites/default/files/styles/scale_width_1200/public/news-images/mechet-kerbi-foto-1.jpg?itok=8fK9D4pM" alt="Мечеть в Керби">
+                    <div class="card-content">
+                        <h3>Мечеть в Керби</h3>
+                        <p>Раннемусульманская мечеть конца XVIII – начала XIX века в башенном комплексе Керби. Сохранилась на высоту 3 метра, протяжённость восточной стены — около 8 метров.[reference:9]</p>
+                        <span class="tag">🕌 Горная мечеть</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Суфизм -->
+        <section>
+            <h2>Суфизм и вирды</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Zikr_in_Moscow.jpg/1280px-Zikr_in_Moscow.jpg" alt="Зикр">
+                    <div class="card-content">
+                        <h3>Шейх Кунта-Хаджи</h3>
+                        <p>В 1860-е годы среди ингушей распространился суфизм в форме «зикризма» — учения шейха Кунта-Хаджи Кишиева. Он призывал к отказу от насилия и сосредоточению на личном благочестии.[reference:10]</p>
+                        <span class="tag">☪️ Суфизм</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mosque_in_Nazran.jpg/1280px-Mosque_in_Nazran.jpg" alt="Современная мечеть">
+                    <div class="card-content">
+                        <h3>Вирдовые братства</h3>
+                        <p>Сегодня ингушские мусульмане принадлежат к двум суфийским тарикатам: кадирийя и накшбандийя, которые делятся на вирды — братства, основанные наchain духовной преемственности от шейхов.[reference:11]</p>
+                        <span class="tag">☪️ Вирды</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Современный ислам -->
+        <section>
+            <h2>Ислам сегодня</h2>
+            <div class="timeline">
+                <ul>
+                    <li><strong>70 мечетей и 200 молельных домов</strong> действуют в республике.[reference:12]</li>
+                    <li><strong>Исламский институт</strong> в станице Орджоникидзевской обучает 120 студентов высшему исламскому образованию.[reference:13]</li>
+                    <li><strong>Строится мечеть «Сердце Кавказа»</strong> в Магасе — на 8000 прихожан, с Исламским университетом на 230 студентов.[reference:14]</li>
+                    <li><strong>Ежегодный хадж</strong> — в 2025 году квота для паломников из Ингушетии увеличена до 1300 мест.[reference:15]</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Культура Ингушетии. Информация основана на научных источниках.</p>
+        <p style="margin-top: 0.4rem;">Исторические данные: «Кавказский Узел», Ингушский госуниверситет, ДУМ РФ.</p>
+    </footer>
+
+</body>
+</html>

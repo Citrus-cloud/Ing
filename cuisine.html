@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Кухня Ингушетии — Вкус традиций</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f9f7f3;
+            color: #2e241f;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Герой-блок */
+        .hero-cuisine {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+                url('https://foodar.ru/wp-content/uploads/2023/04/chapilgash-60-foto-1.jpg') /* Картинка с чапильгаш */
+                center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 7rem 1.5rem 5rem;
+            border-bottom: 6px solid #d4a017;
+        }
+
+        .hero-cuisine h1 {
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 3px 4px 12px rgba(0,0,0,0.7);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-cuisine .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* Навигация */
+        nav {
+            background: #3a2e28;
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 2rem;
+        }
+
+        nav a {
+            color: #f7eed7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            border-bottom-color: #d4a017;
+            color: #ffd966;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem;
+            flex: 1;
+        }
+
+        section {
+            margin-bottom: 4.5rem;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #4b3621;
+            border-left: 10px solid #d4a017;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.2rem;
+            margin-top: 1.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 38px rgba(0,0,0,0.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid #d4a017;
+        }
+
+        .card-content {
+            padding: 1.5rem 1.4rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #3a2e28;
+            margin-bottom: 0.7rem;
+        }
+
+        .card p {
+            color: #4d3e34;
+            margin-bottom: 1.2rem;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            background: #efe0c6;
+            color: #4b3621;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        /* Блок с интересным фактом */
+        .fact-banner {
+            background: #e8dccb;
+            border-radius: 28px;
+            padding: 2.2rem 2rem;
+            margin: 2.8rem 0;
+            border: 2px solid #d4a017;
+        }
+
+        .fact-banner ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .fact-banner li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .fact-banner li::before {
+            content: "●";
+            color: #d4a017;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        footer {
+            background: #3a2e28;
+            color: #d9cdb0;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+            border-top: 5px solid #d4a017;
+        }
+
+        @media (max-width: 600px) {
+            .hero-cuisine {
+                padding: 4rem 1rem 3rem;
+            }
+            .card img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Герой -->
+    <header class="hero-cuisine">
+        <h1>Ингушская кухня</h1>
+        <p class="subtitle">Скромность ингредиентов и богатство вкуса</p>
+    </header>
+
+    <!-- Навигация -->
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Главная</a></li>
+            <li><a href="towers.html">🏔️ Башни</a></li>
+            <li><a href="costume.html">👗 Костюм</a></li>
+            <li><a href="cuisine.html" class="active">🍽️ Кухня</a></li>
+            <li><a href="#">🕌 Ислам</a></li>
+            <li><a href="#">🌿 Природа</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Главные блюда -->
+        <section>
+            <h2>Главные блюда</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <!-- Картинка дулх-халтам с рецепта на Nyamkin.ru -->
+                    <img src="https://nyamkin.ru/storage/recipes/2023-02/1675983932-duix-haltam-1.jpg" alt="Дулх-халтам - мясо с галушками">
+                    <div class="card-content">
+                        <h3>Дулх-халтам</h3>
+                        <p>Главное национальное блюдо ингушей. Нежная отварная баранина или говядина подаётся с кукурузными галушками и сдабривается особым соусом берх, а также острой черемшовой подливкой. Обязательный атрибут праздничного стола. [citation:1]</p>
+                        <span class="tag">🍖 Национальное достояние</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <!-- Картинка чапильгаш с того же Nyamkin.ru -->
+                    <img src="https://nyamkin.ru/storage/recipes/2023-02/1675985922-chapilgash-1.jpg" alt="Чапильгаш - тонкие лепёшки с начинкой">
+                    <div class="card-content">
+                        <h3>Чапильгаш (чIаьпилг)</h3>
+                        <p>Визитная карточка ингушской кухни. Тончайшие лепёшки из пресного теста с начинкой из картофеля, творога, зелени или тыквы. Обжариваются на сухой сковороде и щедро смазываются сливочным маслом. [citation:1]</p>
+                        <span class="tag">🥞 Любимое угощение</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <!-- Картинка хингалаш (лепёшки с тыквой) -->
+                    <img src="https://vkusnostibymado.ru/wp-content/uploads/2021/10/ingushskie-lepeshki-s-tykvoj-3.jpg" alt="Хингалаш - лепёшки с тыквой">
+                    <div class="card-content">
+                        <h3>Хингалаш</h3>
+                        <p>Ещё один вид традиционных лепёшек, на этот раз с начинкой из сладкой варёной тыквы. Популярное лакомство, которое подают к чаю. Изображение этого блюда даже было выпущено на почтовой марке России. [citation:6]</p>
+                        <span class="tag">🎃 Сладкое угощение</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Другие популярные блюда -->
+        <section>
+            <h2>Популярные блюда</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <!-- Картинка лепёшек сискал (чурек) -->
+                    <img src="https://vkusnostibymado.ru/wp-content/uploads/2021/09/siskal-3.jpg" alt="Сискал - кукурузный чурек">
+                    <div class="card-content">
+                        <h3>Сискал (чурек)</h3>
+                        <p>Традиционный ингушский хлеб из кукурузной муки. Может быть пресным или кислым (мистам). Подаётся ко всем основным блюдам, и идеально подходит для того, чтобы макать его в соусы и подливки. [citation:1]</p>
+                        <span class="tag">🌽 Хлеб всему голова</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <!-- Картинка супа кхеш -->
+                    <img src="https://nyamkin.ru/storage/recipes/2023-02/1675985930-khesh-1.jpg" alt="Кхеш - фасолевый суп">
+                    <div class="card-content">
+                        <h3>Кхеш</h3>
+                        <p>Сытный суп на основе фасоли, мяса и картофеля. В конце приготовления в него добавляют молоко и ароматный чабрец, что делает его вкус нежным и насыщенным одновременно. [citation:7]</p>
+                        <span class="tag">🥣 Согревающий суп</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <!-- Картинка колбасы мааш -->
+                    <img src="https://retsepty-kulinariya.ru/wp-content/uploads/2023/06/ingushskaya-kolbasa-maash.jpg" alt="Мааш - ингушская колбаса">
+                    <div class="card-content">
+                        <h3>Мааш (марш)</h3>
+                        <p>Домашняя колбаса, фаршированная субпродуктами и перемотанная бараньими кишками. Настоящий деликатес, который готовят по особым случаям. [citation:9]</p>
+                        <span class="tag">🍖 Деликатес</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Традиции и особенности -->
+        <section>
+            <h2>Особенности и традиции</h2>
+            <div class="fact-banner">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.2rem; color: #3a2e28;">📜 Традиции застолья</h3>
+                <ul>
+                    <li><strong>Культ гостя:</strong> приглашая на чашку чая, ингуши постараются досыта накормить гостя лучшими блюдами. [citation:1]</li>
+                    <li><strong>Свежесть мяса:</strong> для праздничного дулх-халтам используют только свежее мясо. Сушёное мясо считалось непригодным для подачи гостям. [citation:9]</li>
+                    <li><strong>Три кита:</strong> основа кухни — мясо (баранина, говядина), кукурузная мука и обилие свежей зелени, особенно черемши. [citation:1]</li>
+                    <li><strong>Простота и сытность:</strong> еда очень проста в приготовлении, но при этом невероятно сытная и вкусная. [citation:3]</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Культура Ингушетии. Вкус, проверенный веками.</p>
+        <p style="margin-top: 0.4rem;">Источники: Рувики, Сердало, Nyamkin.ru, Vkusnosti by Mado.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Природа Ингушетии — Горы, водопады, ущелья</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f9f7f3;
+            color: #2e241f;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* Герой-блок */
+        .hero-nature {
+            background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)),
+                url('https://www.istockphoto.com/photos/ingushetia')
+                center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 7rem 1.5rem 5rem;
+            border-bottom: 6px solid #4caf50;
+        }
+        .hero-nature h1 {
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 3px 4px 12px rgba(0,0,0,0.7);
+            margin-bottom: 0.8rem;
+        }
+        .hero-nature .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-style: italic;
+            opacity: 0.9;
+        }
+        /* Навигация */
+        nav {
+            background: #2e4a2e;
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 2rem;
+        }
+        nav a {
+            color: #e0f2e0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+        nav a:hover,
+        nav a.active {
+            border-bottom-color: #4caf50;
+            color: #a5d6a5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem;
+            flex: 1;
+        }
+        section {
+            margin-bottom: 4.5rem;
+        }
+        h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #2e4a2e;
+            border-left: 10px solid #4caf50;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.2rem;
+            margin-top: 1.2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 38px rgba(0,0,0,0.12);
+        }
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 4px solid #4caf50;
+        }
+        .card-content {
+            padding: 1.5rem 1.4rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2e4a2e;
+            margin-bottom: 0.7rem;
+        }
+        .card p {
+            color: #3a3a3a;
+            margin-bottom: 1.2rem;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+        .tag {
+            background: #e0f2e0;
+            color: #2e4a2e;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            align-self: flex-start;
+        }
+        /* Блок с фактами */
+        .fact-banner {
+            background: #e0f2e0;
+            border-radius: 28px;
+            padding: 2.2rem 2rem;
+            margin: 2.8rem 0;
+            border: 2px solid #4caf50;
+        }
+        .fact-banner ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .fact-banner li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            font-weight: 500;
+        }
+        .fact-banner li::before {
+            content: "●";
+            color: #4caf50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+        footer {
+            background: #2e4a2e;
+            color: #c8e6c8;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+            border-top: 5px solid #4caf50;
+        }
+        @media (max-width: 600px) {
+            .hero-nature {
+                padding: 4rem 1rem 3rem;
+            }
+            .card img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Герой -->
+    <header class="hero-nature">
+        <h1>Природа Ингушетии</h1>
+        <p class="subtitle">Земля башен, горных вершин и чистейших водопадов</p>
+    </header>
+    <!-- Навигация -->
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Главная</a></li>
+            <li><a href="towers.html">🏔️ Башни</a></li>
+            <li><a href="costume.html">👗 Костюм</a></li>
+            <li><a href="cuisine.html">🍽️ Кухня</a></li>
+            <li><a href="islam.html">🕌 Ислам</a></li>
+            <li><a href="nature.html" class="active">🌿 Природа</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <!-- Знаменитые места -->
+        <section>
+            <h2>Знаковые места</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="https://sun9-78.userapi.com/impg/IidzqGyWfzkIroNKFOOjGQMsPKJr_p8k5nxoXA/3HRCInomWvg.jpg?size=1200x800&quality=95&sign=8f2e6a3dbd6b8c6c4db5c7a2e1b6e8d9&type=album" alt="Столовая гора в Ингушетии">
+                    <div class="card-content">
+                        <h3>Столовая гора (Маьт-Лоам)</h3>
+                        <p>Главная природная достопримечательность и символ Ингушетии, изображена на гербе республики. Высота — около 3000 метров. У подножия расположены древние села Бейни и Ляжги. Популярное место для пеших походов и любования панорамами[citation:1][citation:6].</p>
+                        <span class="tag">⛰️ Символ республики</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/0e/85/6f/caption.jpg?w=1200&h=-1&s=1" alt="Ляжгинский водопад в Ингушетии">
+                    <div class="card-content">
+                        <h3>Ляжгинский водопад</h3>
+                        <p>Крупнейший водопад горной Ингушетии (~20 м), расположен в Джейрахском ущелье. Вода чистая и имеет голубоватый оттенок. К нему ведет живописная экотропа длиной 1350 метров[citation:2].</p>
+                        <span class="tag">💧 Горный поток</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://www.istockphoto.com/resources/images/home/ingushetia-targim-1.jpg" alt="Таргимская котловина">
+                    <div class="card-content">
+                        <h3>Таргимская котловина</h3>
+                        <p>«Сердце» горной Ингушетии, где расположен знаменитый башенный комплекс Таргим. Живописные пейзажи долины реки Асса, зеленые луга и суровые склоны создают неповторимый колорит[citation:4].</p>
+                        <span class="tag">🌄 Прародина родов</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Другие достопримечательности -->
+        <section>
+            <h2>Другие жемчужины</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/3c/8a/6c/caption.jpg?w=1200&h=-1&s=1" alt="Джейрахское ущелье">
+                    <div class="card-content">
+                        <h3>Джейрахское ущелье</h3>
+                        <p>«Ворота» в горную Ингушетию. Здесь путешественников встречают величественные башни на фоне горных вершин и глубоких ущелий[citation:6][citation:10].</p>
+                        <span class="tag">🏞️ Ущелье башен</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://photokto.ru/photo/view/7027202.html" alt="Цей-Лоамский перевал">
+                    <div class="card-content">
+                        <h3>Цей-Лоамский перевал</h3>
+                        <p>Скалистый хребет и перевал на высоте около 2200 метров. Отсюда открываются захватывающие виды на Таргимскую котловину и Главный Кавказский хребет[citation:9].</p>
+                        <span class="tag">⛰️ Захватывающая высота</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://www.istockphoto.com/resources/images/home/ingushetia-erzi-2.jpg" alt="Эрзи заповедник">
+                    <div class="card-content">
+                        <h3>Заповедник Эрзи</h3>
+                        <p>Государственный природный заповедник. Охраняет уникальную экосистему, редкие растения и, конечно, знаменитые башенные комплексы на фоне субальпийских лугов[citation:10].</p>
+                        <span class="tag">🌿 Заповедный край</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Особенности природы -->
+        <section>
+            <h2>Что нужно знать туристу</h2>
+            <div class="fact-banner">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.2rem; color: #2e4a2e;">📌 Важные факты</h3>
+                <ul>
+                    <li><strong>Лучшее время для поездок:</strong> весна и лето — здесь цветут альпийские луга. Осенью склоны окрашиваются в золотой цвет, а зимой открываются суровые заснеженные пейзажи[citation:1].</li>
+                    <li><strong>Высота и климат:</strong> перепады высот от 500 до 3000 метров. На высоте может быть прохладно даже летом, нужна ветровка.</li>
+                    <li><strong>Вода в реках:</strong> в реках и водопадах вода ледниковая, чистая и очень холодная[citation:2].</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Культура Ингушетии. Берегите природу древнего края.</p>
+        <p style="margin-top: 0.4rem;">Источники: Visit Caucasus, LiveJournal (Тимагор), Это Кавказ, TripAdvisor, iStock.</p>
+    </footer>
+</body>
+</html>
